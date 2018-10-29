@@ -1,0 +1,102 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ommer
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Clicked +");
+
+            //Parse from String to int
+            int input1 = int.Parse(textBoxInput1.Text);
+            int input2 = int.Parse(textBoxInput2.Text);
+                                                        // hvorfor er det, at man vil skrive fx Console.Writelin("Clicked")?
+            int result = input1 + input2;
+            textBoxResult.Text = result + ""; //hvordan skal vi kunne vide, hvordan man gør det?
+
+        }
+
+        private void buttonSub_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Clicked -");
+
+            //Parse from String to int
+            int input1 = int.Parse(textBoxInput1.Text);
+            int input2 = int.Parse(textBoxInput2.Text);
+            // hvorfor er det, at man vil skrive fx Console.Writelin("Clicked")?
+            int result = input1 - input2;
+            textBoxResult.Text = result + ""; //hvordan skal vi kunne vide, hvordan man gør det?
+        }
+
+        private void buttonMul_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Clicked *");
+
+            //Parse from String to int
+            int input1 = int.Parse(textBoxInput1.Text);
+            int input2 = int.Parse(textBoxInput2.Text);
+            // hvorfor er det, at man vil skrive fx Console.Writelin("Clicked")?
+            int result = input1 * input2;
+            textBoxResult.Text = result + ""; //hvordan skal vi kunne vide, hvordan man gør det?
+        }
+
+        private void buttonDiv_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Clicked /"); //han har fjernet disse i videoen. Vi beholder dem for at vise, hvad det gør. Det er en slags kommunikation til én selv. Måske.
+
+            //Parse from String to int
+            int input1 = int.Parse(textBoxInput1.Text);
+            int input2 = int.Parse(textBoxInput2.Text);
+            // hvorfor er det, at man vil skrive fx Console.Writelin("Clicked")?
+            int result = input1 / input2;
+            textBoxResult.Text = result + ""; //hvordan skal vi kunne vide, hvordan man gør det?
+        }
+
+
+        //Følgende er en måde at lave en generel metode, som erstatter de mange ens koder. Det er kun den matematiskes operatør til forskel, og derfor kan vi opstille det som følger:
+        private int CalculateWithOperator(int operatorInt)
+        {
+            int input1 = int.Parse(textBoxInput1.Text);
+            int input2 = int.Parse(textBoxInput2.Text);
+
+
+            
+            //0 = +
+            //1 = -
+            //2 = *
+            //3 = /
+            int result = 0;
+            switch(operatorInt)
+            {
+                case 0:
+                    result = input1 + input2;
+                    break;
+                case 1:
+                    result = input1 - input2;
+                    break;
+                case 2:
+                    result = input1 * input2;
+                    break;
+                case 3:
+                    result = input1 / input2;
+                    break;
+            }
+            return result; //for at erstatte de første funktioner, kan man slette koderne og skrive CalculateWithOperator(0,1,2 eller 3), hvormed man kalder den metode, vi lige har skrevet.
+
+
+        }
+    }
